@@ -1,0 +1,28 @@
+2019-08-08 16:41:53,454 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplication on wcmis022 with PID 7376 (D:\Projects\mkpl-api-blogsystem\target\classes started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 16:41:53,545 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 16:41:53,547 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 16:42:01,519 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplication in 11.039 seconds (JVM running for 12.662)
+2019-08-08 17:14:57,744 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplication on wcmis022 with PID 12304 (D:\Projects\mkpl-api-blogsystem\target\classes started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:14:57,749 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:14:57,750 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:15:11,551 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplication in 16.725 seconds (JVM running for 18.317)
+2019-08-08 17:24:05,632 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplication on wcmis022 with PID 12304 (D:\Projects\mkpl-api-blogsystem\target\classes started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:24:05,632 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:24:05,633 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:24:07,593 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplication in 2.064 seconds (JVM running for 554.368)
+2019-08-08 17:24:13,589 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplicationTests on wcmis022 with PID 10752 (started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:24:13,590 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:24:13,591 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:24:19,530 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplicationTests in 7.911 seconds (JVM running for 10.671)
+2019-08-08 17:25:44,980 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplication on wcmis022 with PID 12304 (D:\Projects\mkpl-api-blogsystem\target\classes started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:25:44,980 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:25:44,980 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:25:46,223 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplication in 1.384 seconds (JVM running for 653.009)
+2019-08-08 17:25:51,720 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplicationTests on wcmis022 with PID 11796 (started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:25:51,720 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:25:51,720 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:25:58,080 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplicationTests in 9.082 seconds (JVM running for 11.475)
+2019-08-08 17:28:03,406 INFO (StartupInfoLogger.java:50)- Starting MkplApiBlogsystemApplicationTests on wcmis022 with PID 4592 (started by vz04 in D:\Projects\mkpl-api-blogsystem)
+2019-08-08 17:28:03,408 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-08-08 17:28:03,410 INFO (SpringApplication.java:647)- No active profile set, falling back to default profiles: default
+2019-08-08 17:28:11,905 INFO (StartupInfoLogger.java:59)- Started MkplApiBlogsystemApplicationTests in 11.289 seconds (JVM running for 13.562)
