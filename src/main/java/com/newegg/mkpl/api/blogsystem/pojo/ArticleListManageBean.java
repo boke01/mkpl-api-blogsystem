@@ -1,21 +1,16 @@
 package com.newegg.mkpl.api.blogsystem.pojo;
 
-
 import java.sql.Timestamp;
 
 /**
- * 文章数据
+ * 给用管理用的文章列表
  * @author vz04
- * @date 8/8/2019 4:50 PM
+ * @date 8/9/2019 11:10 AM
  **/
-public class ArticleBean {
-
+public class ArticleListManageBean {
     private Integer articleId;
     private String headline;
-    private String synopsis;
-    private String content;
     private Integer readingQuantity;
-    private String pictureAddress;
     private Timestamp lastEditDate;
 
     public Integer getArticleId() {
@@ -34,36 +29,12 @@ public class ArticleBean {
         this.headline = headline;
     }
 
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public Integer getReadingQuantity() {
         return readingQuantity;
     }
 
     public void setReadingQuantity(Integer readingQuantity) {
         this.readingQuantity = readingQuantity;
-    }
-
-    public String getPictureAddress() {
-        return pictureAddress;
-    }
-
-    public void setPictureAddress(String pictureAddress) {
-        this.pictureAddress = pictureAddress;
     }
 
     public Timestamp getLastEditDate() {
@@ -76,13 +47,10 @@ public class ArticleBean {
 
     @Override
     public String toString() {
-        return "ArticleBean{" +
+        return "ArticleListManageBean{" +
                 "articleId=" + articleId +
                 ", headline='" + headline + '\'' +
-                ", synopsis='" + synopsis + '\'' +
-                ", content='" + content + '\'' +
                 ", readingQuantity=" + readingQuantity +
-                ", pictureAddress='" + pictureAddress + '\'' +
                 ", lastEditDate=" + lastEditDate +
                 '}';
     }

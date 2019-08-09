@@ -1,19 +1,15 @@
 package com.newegg.mkpl.api.blogsystem.pojo;
 
-
 import java.sql.Timestamp;
 
 /**
- * 文章数据
+ * 给用户使用的文章列表
  * @author vz04
- * @date 8/8/2019 4:50 PM
+ * @date 8/9/2019 11:10 AM
  **/
-public class ArticleBean {
-
+public class ArticleListUserBean {
     private Integer articleId;
     private String headline;
-    private String synopsis;
-    private String content;
     private Integer readingQuantity;
     private String pictureAddress;
     private Timestamp lastEditDate;
@@ -32,22 +28,6 @@ public class ArticleBean {
 
     public void setHeadline(String headline) {
         this.headline = headline;
-    }
-
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public Integer getReadingQuantity() {
@@ -76,11 +56,9 @@ public class ArticleBean {
 
     @Override
     public String toString() {
-        return "ArticleBean{" +
+        return "ArticleListUserBean{" +
                 "articleId=" + articleId +
                 ", headline='" + headline + '\'' +
-                ", synopsis='" + synopsis + '\'' +
-                ", content='" + content + '\'' +
                 ", readingQuantity=" + readingQuantity +
                 ", pictureAddress='" + pictureAddress + '\'' +
                 ", lastEditDate=" + lastEditDate +

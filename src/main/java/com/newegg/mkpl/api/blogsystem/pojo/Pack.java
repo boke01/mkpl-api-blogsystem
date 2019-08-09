@@ -2,12 +2,12 @@ package com.newegg.mkpl.api.blogsystem.pojo;
 
 import com.newegg.mkpl.api.blogsystem.enums.StateEnum;
 
+
 /**
  * 包装返回的数据
  * @author vz04
  * @date 8/8/2019 4:00 PM
  **/
-
 public class Pack {
 
     private int code;

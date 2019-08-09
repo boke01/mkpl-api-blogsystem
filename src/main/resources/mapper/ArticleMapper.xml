@@ -2,7 +2,59 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.newegg.mkpl.api.blogsystem.mapper.ArticleMapper">
 
-    <select id="getArticle" resultType="com.newegg.mkpl.api.blogsystem.pojo.ArticleBean">
+    <insert id="postArticle" parameterType="ArticleBean">
+        insert into vz04.article  (Headline, Synopsis, Content, PictureAddress,InUser)
+        values (#{headline},#{synopsis},#{content},#{pictureAddress},'vz04')
+    </insert>
 
+    <select id="getArticle" resultType="ArticleBean">
+      select ArticleId, Headline, Synopsis, Content, ReadingQuantity, PictureAddress, LastEditDate
+      from vz04.article
+      where ArticleId = #{articleId}
     </select>
+
+    <update id="putArticle" parameterType="ArticleBean">
+        update vz04.article
+        set Headline = #{headline}, Synopsis = #{synopsis}, Content = #{content}, PictureAddress = #{pictureAddress},
+        LastEditUser = 'vz04', LastEditDate = GETDATE()
+        where ArticleId = #{articleId}
+    </update>
+
+    <delete id="deleteArticle">
+        delete from vz04.article
+        where ArticleId = #{articleId}
+    </delete>
+
+    <select id="getArticleListUser" resultType="ArticleListUserBean">
+        select ArticleId, Headline, ReadingQuantity, PictureAddress, LastEditDate
+        from vz04.article
+    </select>
+
+    <select id="getArticleListManage" resultType="ArticleListManageBean">
+        select ArticleId, Headline, ReadingQuantity, LastEditDate
+        from vz04.article
+    </select>
+
+    <select id="getArticleList" resultType="ArticleListBean">
+        select ArticleId, Headline
+        from vz04.article
+    </select>
+
+    <select id="getHeadline" resultType="String">
+        select Headline
+        from vz04.article
+        where Headline = #{headline}
+    </select>
+
+    <select id="getArticleId" resultType="Integer">
+        select ArticleId
+        from vz04.article
+        where ArticleId = #{articleId}
+    </select>
+
+    <update id="putReadingQuantity">
+        update vz04.article
+        set ReadingQuantity = ReadingQuantity + 1
+        where ArticleId = ${articleId}
+    </update>
 </mapper>    
