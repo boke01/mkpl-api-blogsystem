@@ -87,7 +87,7 @@ public interface ArticleMapper {
      * @param headline 标题
      * @return Integer
      */
-    String getHeadline(@Param("headline") String headline);
+    ArticleBean getHeadline(@Param("headline") String headline);
 
     /**
      * 查询文章是否存在（通过id）

@@ -16,6 +16,7 @@ public interface ArticleService {
      * @date 2:54 PM 8/9/2019
      * @param articleBean 文章数据
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack postArticle(ArticleBean articleBean) throws RuntimeException;
 
@@ -25,6 +26,7 @@ public interface ArticleService {
      * @date 2:56 PM 8/9/2019
      * @param articleId 文章id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack getArticle(Integer articleId) throws RuntimeException;
 
@@ -34,6 +36,7 @@ public interface ArticleService {
      * @date 8/9/2019
      * @param articleBean 文章数据
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack putArticle(ArticleBean articleBean) throws RuntimeException;
 
@@ -44,6 +47,7 @@ public interface ArticleService {
      * @date 2:58 PM 8/9/2019
      * @param articleId 文章id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack deleteArticle(Integer articleId) throws RuntimeException;
 
@@ -77,6 +81,7 @@ public interface ArticleService {
      * @date 3:03 PM 8/9/2019
      * @param articleId 文章id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack putReadingQuantity(Integer articleId) throws RuntimeException;
 

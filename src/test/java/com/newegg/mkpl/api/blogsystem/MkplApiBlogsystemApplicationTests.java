@@ -1,9 +1,13 @@
 package com.newegg.mkpl.api.blogsystem;
 
+import com.newegg.mkpl.api.blogsystem.util.RegularUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.IOException;
+
 
 /**
  * 测试类
@@ -14,10 +18,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class MkplApiBlogsystemApplicationTests {
 
-
 	@Test
-	public void contextLoads() {
-
+	public void contextLoads() throws IOException {
+		System.out.println(RegularUtil.isUrl("156542235974.png"));
 	}
 
 }

@@ -2,7 +2,7 @@ server:
   servlet:
     context-path: /blog
     session:
-      timeout: 30
+      timeout: 30m
   port: 8080
   tomcat:
     uri-encoding: UTF-8
@@ -29,3 +29,6 @@ logging:
 user:
   account: 10086
   password: e10adc3949ba59abbe56e057f20f883e
+
+upload:
+  path: \src\main\resources\upload\picture\

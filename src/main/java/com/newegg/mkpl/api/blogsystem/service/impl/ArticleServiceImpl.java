@@ -38,8 +38,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Pack postArticle(ArticleBean articleBean) throws RuntimeException {
         String url = articleBean.getPictureAddress();
+        String headline = articleBean.getHeadline();
         if (!RegularUtil.isUrl(url)) {
-            return new Pack().fail(StateEnum.FAIL.value(),"图片路径错误");
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.PICTURE_URL_ERROR);
+        }
+        if (articleMapper.getHeadline(headline)!=null){
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.HEADLINE_EXIST);
         }
         Integer integer = articleMapper.postArticle(articleBean);
         if (integer == 1) {
@@ -75,8 +79,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Pack putArticle(ArticleBean articleBean) throws RuntimeException {
         String headline = articleBean.getHeadline();
-        if (articleMapper.getHeadline(headline) != null) {
-            return new Pack().fail(StateEnum.FAIL.value(),"改标题已存在");
+        ArticleBean article = articleMapper.getHeadline(headline);
+        if (article != null) {
+            if (!articleBean.getArticleId().equals(article.getArticleId())) {
+                return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.HEADLINE_EXIST);
+            }
         }
         Integer integer = articleMapper.putArticle(articleBean);
         if (integer != 1) {

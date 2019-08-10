@@ -16,6 +16,7 @@ public interface CommentService {
      * @date 8/9/2019
      * @param commentBean 评论数据
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack postComment(CommentBean commentBean) throws RuntimeException;
 
@@ -25,6 +26,7 @@ public interface CommentService {
      * @date 3:05 PM 8/9/2019
      * @param articleId 文章id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack getCommentList(Integer articleId) throws RuntimeException;
 
@@ -34,6 +36,7 @@ public interface CommentService {
      * @date 3:06 PM 8/9/2019
      * @param articleId 文章id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack getComment(Integer articleId) throws RuntimeException;
 
@@ -43,6 +46,7 @@ public interface CommentService {
      * @date 3:08 PM 8/9/2019
      * @param commentId 评论id
      * @return Pack
+     * @throws RuntimeException RuntimeException
      */
     Pack deleteComment(Integer commentId) throws RuntimeException;
 }

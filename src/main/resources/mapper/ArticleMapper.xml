@@ -40,8 +40,8 @@
         from vz04.article
     </select>
 
-    <select id="getHeadline" resultType="String">
-        select Headline
+    <select id="getHeadline" resultType="ArticleBean">
+        select ArticleId,Headline
         from vz04.article
         where Headline = #{headline}
     </select>

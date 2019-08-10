@@ -37,11 +37,11 @@ public class CommentServiceImpl implements CommentService {
     public Pack postComment(CommentBean commentBean) throws RuntimeException {
         Integer articleId = commentBean.getArticleId();
         String email = commentBean.getEmail();
-        if (articleMapper.getArticleId(articleId) != null) {
-            return new Pack().fail(StateEnum.FAIL.value(),"评论的文章不存在");
+        if (articleMapper.getArticleId(articleId) == null) {
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.ARTICLE_INEXISTENCE);
         }
         if (!RegularUtil.isEmail(email)) {
-            return new Pack().fail(StateEnum.FAIL.value(),"邮箱错误");
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.EMAIL_ERROR);
         }
         Integer integer = commentMapper.postComment(commentBean);
         if (integer != 1) {
