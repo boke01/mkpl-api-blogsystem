@@ -28,7 +28,7 @@ public class PictureController {
     private PictureService pictureService;
 
     @Value("${upload.path}")
-    String path;
+    String uploadPath;
 
     /**
      * 上传图片的api
@@ -52,11 +52,10 @@ public class PictureController {
      * @date 4:48 PM 8/10/2019
      * @param fileName 文件名称
      * @param response HttpServletResponse
-     * @return Pack
      */
     @GetMapping("/get/picture/{fileName}")
-    public Pack getPicture(@PathVariable String fileName, HttpServletResponse response) throws IOException {
-        path = System.getProperty("user.dir") + path+fileName;
+    public void getPicture(@PathVariable String fileName, HttpServletResponse response) throws IOException {
+        String path = System.getProperty("user.dir") + uploadPath+fileName;
         File file = new File(path);
         FileInputStream in_file = new FileInputStream(file);
         MultipartFile multi = new MockMultipartFile(fileName,in_file);
@@ -64,7 +63,6 @@ public class PictureController {
         String hande = "image/"+suffix;
         response.setContentType(hande);
         response.getOutputStream().write(multi.getBytes());
-        return new Pack().success("");
     }
 
 

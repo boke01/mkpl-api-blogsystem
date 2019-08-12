@@ -35,9 +35,10 @@ public class PictureServiceImpl implements PictureService {
             return new Pack().fail(StateEnum.FAIL.value(), PoolStatic.NOT_PICTURE);
         }
         String name = FileUtil.savePicture(file, path);
+        String url = "/get/picture/"+name;
         if (name == null) {
             return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.POST_FAIL);
         }
-        return new Pack().success(PoolStatic.POST_SUCCESS,name);
+        return new Pack().success(PoolStatic.POST_SUCCESS,url);
     }
 }

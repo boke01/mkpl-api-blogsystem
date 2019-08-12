@@ -27,7 +27,6 @@ public class FileUtil {
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
         String newFileName = name+"."+suffix;
         File newFile = new File(System.getProperty("user.dir") + path, newFileName);
-        file.transferTo(newFile);
         if (newFile.exists()) {
             return newFile.getName();
         }
