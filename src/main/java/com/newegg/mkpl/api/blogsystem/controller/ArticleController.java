@@ -4,6 +4,7 @@ import com.newegg.mkpl.api.blogsystem.pojo.ArticleBean;
 import com.newegg.mkpl.api.blogsystem.pojo.Pack;
 import com.newegg.mkpl.api.blogsystem.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @author vz04
  * @date 8/10/2019 2:19 PM
  **/
+@CrossOrigin
 @RestController
 public class ArticleController {
     @Autowired
@@ -71,22 +73,24 @@ public class ArticleController {
      * 获取用户使用的文章列表
      *
      * @date 3:01 PM 8/10/2019
+     * @param map 字段 pageNum 页码
      * @return Pack
      */
     @PostMapping("/get/article-list-user")
-    public Pack getArticleListUser() {
-        return articleService.getArticleListUser();
+    public Pack getArticleListUser(@RequestBody Map<String,Integer> map) {
+        return articleService.getArticleListUser(map.get("pageNum"));
     }
 
     /**
      * 获取管理用的文章列表
      *
      * @date 3:05 PM 8/10/2019
+     * @param map 字段 pageNum 页码
      * @return Pack
      */
     @PostMapping("/manage/get/article-list-manage")
-    public Pack getArticleListManage() {
-        return articleService.getArticleListManage();
+    public Pack getArticleListManage(@RequestBody Map<String,Integer> map) {
+        return articleService.getArticleListManage(map.get("pageNum"));
     }
 
     /**

@@ -20,7 +20,7 @@ import java.io.IOException;
 @Service
 public class PictureServiceImpl implements PictureService {
     @Value("${upload.path}")
-    String path;
+    private String path;
     /**
      * 添加文件的业务
      *

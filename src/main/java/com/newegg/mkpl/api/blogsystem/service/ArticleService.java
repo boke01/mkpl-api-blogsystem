@@ -55,17 +55,19 @@ public interface ArticleService {
      * 获取用户使用的文章列表
      *
      * @date 3:00 PM 8/9/2019
+     * @param pageNum 需要的页数
      * @return Pack
      */
-    Pack getArticleListUser();
+    Pack getArticleListUser(Integer pageNum);
 
     /**
      * 获取管理用的文章列表
      *
      * @date 8/9/2019
+     * @param pageNum 需要的页数
      * @return Pack
      */
-    Pack getArticleListManage();
+    Pack getArticleListManage(Integer pageNum);
 
     /**
      * 获取普通的文章列表

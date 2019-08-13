@@ -1,5 +1,7 @@
 package com.newegg.mkpl.api.blogsystem.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.newegg.mkpl.api.blogsystem.enums.StateEnum;
 import com.newegg.mkpl.api.blogsystem.mapper.ArticleMapper;
 import com.newegg.mkpl.api.blogsystem.mapper.CommentMapper;
@@ -12,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 评论相关的业务实现
@@ -68,11 +72,15 @@ public class CommentServiceImpl implements CommentService {
      *
      * @date 4:34 PM 8/9/2019
      * @param articleId 文章id
+     * @param pageNum 页码
      * @return Pack
      */
     @Override
-    public Pack getComment(Integer articleId) throws RuntimeException {
-        return new Pack().success(PoolStatic.GET_SUCCESS,commentMapper.getComment(articleId));
+    public Pack getComment(Integer articleId, Integer pageNum) throws RuntimeException {
+        PageHelper.startPage(pageNum,PoolStatic.PAGE_SIZE);
+        List<CommentBean> comment = commentMapper.getComment(articleId);
+        PageInfo<CommentBean> commentPageInfo = new PageInfo<>(comment);
+        return new Pack().success(PoolStatic.GET_SUCCESS,commentPageInfo);
     }
 
     /**

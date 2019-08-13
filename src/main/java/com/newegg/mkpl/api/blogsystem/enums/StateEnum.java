@@ -22,7 +22,7 @@ public enum StateEnum {
 
     private Integer code;
 
-    private StateEnum(Integer code) {
+    StateEnum(Integer code) {
         this.code  = code;
     }
 

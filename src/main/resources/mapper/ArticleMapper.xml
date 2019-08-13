@@ -57,4 +57,10 @@
         set ReadingQuantity = ReadingQuantity + 1
         where ArticleId = ${articleId}
     </update>
+
+    <select id="getPictureUrl" resultType="String">
+        select PictureAddress
+        from vz04.article
+        where ArticleId = ${articleId}
+    </select>
 </mapper>    

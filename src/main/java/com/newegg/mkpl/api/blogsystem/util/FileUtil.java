@@ -20,7 +20,11 @@ public class FileUtil {
      * @param path 保存路径
      * @return 文件名
      */
-    public static String savePicture(MultipartFile file,String path) throws IOException {
+    public static String savePicture(MultipartFile file, String path) throws IOException {
+        File catalog = new File(System.getProperty("user.dir") + path);
+        if(!catalog.exists()){
+            catalog.mkdirs();
+        }
         Date date = new Date();
         long name = date.getTime();
         String fileName = file.getOriginalFilename();
@@ -31,5 +35,17 @@ public class FileUtil {
             return newFile.getName();
         }
         return null;
+    }
+
+    /**
+     * 删除图片
+     *
+     * @date 10:38 AM 8/13/2019
+     * @param fileName 文件名
+     * @return boolean
+     */
+    public static boolean deletePicture(String fileName, String path) {
+        File file = new File(System.getProperty("user.dir") + path + fileName);
+        return file.isFile() && file.delete();
     }
 }

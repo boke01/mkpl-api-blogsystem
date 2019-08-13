@@ -22,8 +22,8 @@ public class UserRealm extends AuthorizingRealm{
      * 授权逻辑
      *
      * @date 12:34 PM 8/10/2019
-     * @param
-     * @return
+     * @param principalCollection PrincipalCollection
+     * @return AuthorizationInfo
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -34,8 +34,8 @@ public class UserRealm extends AuthorizingRealm{
      * 认证逻辑
      *
      * @date 12:33 PM 8/10/2019
-     * @param
-     * @return
+     * @param authenticationToken AuthenticationToken
+     * @return AuthenticationInfo
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {

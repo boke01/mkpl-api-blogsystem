@@ -10,11 +10,10 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 
 /**
@@ -22,13 +21,14 @@ import java.io.IOException;
  * @author vz04
  * @date 8/10/2019 9:04 AM
  **/
+@CrossOrigin
 @RestController
 public class PictureController {
     @Autowired
     private PictureService pictureService;
 
     @Value("${upload.path}")
-    String uploadPath;
+    private String uploadPath;
 
     /**
      * 上传图片的api
@@ -57,8 +57,8 @@ public class PictureController {
     public void getPicture(@PathVariable String fileName, HttpServletResponse response) throws IOException {
         String path = System.getProperty("user.dir") + uploadPath+fileName;
         File file = new File(path);
-        FileInputStream in_file = new FileInputStream(file);
-        MultipartFile multi = new MockMultipartFile(fileName,in_file);
+        FileInputStream inFile = new FileInputStream(file);
+        MultipartFile multi = new MockMultipartFile(fileName,inFile);
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
         String hande = "image/"+suffix;
         response.setContentType(hande);

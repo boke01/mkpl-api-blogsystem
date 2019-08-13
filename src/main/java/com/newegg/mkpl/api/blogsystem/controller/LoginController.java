@@ -19,6 +19,7 @@ import java.util.Map;
  * @author vz04
  * @date 8/10/2019 1:03 PM
  **/
+@CrossOrigin
 @RestController
 @RequestMapping("/manage")
 public class LoginController {

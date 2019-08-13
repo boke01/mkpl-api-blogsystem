@@ -35,10 +35,11 @@ public interface CommentService {
      *
      * @date 3:06 PM 8/9/2019
      * @param articleId 文章id
+     * @param pageNum 页码
      * @return Pack
      * @throws RuntimeException RuntimeException
      */
-    Pack getComment(Integer articleId) throws RuntimeException;
+    Pack getComment(Integer articleId, Integer pageNum) throws RuntimeException;
 
     /**
      * 删除评论（通过评论id）

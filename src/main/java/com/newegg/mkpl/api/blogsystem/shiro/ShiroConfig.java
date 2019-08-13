@@ -28,15 +28,6 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        /**
-         * Shiro内置过滤器，实现权限相关的拦截
-         *      常用过滤器：
-         *          anon：无需认证（登录）可以访问
-         *          authc：必须认证才能访问
-         *          user：如果使用rememberMe的功能可以直接访问
-         *          perms：该资源必须得到资源授权才能访问
-         *          role：该资源必须得到角色权限才能访问
-         */
         Map<String,String> filterMap= new LinkedHashMap<>();
         shiroFilterFactoryBean.setLoginUrl("/manage/limits");
         filterMap.put("/manage/login","anon");

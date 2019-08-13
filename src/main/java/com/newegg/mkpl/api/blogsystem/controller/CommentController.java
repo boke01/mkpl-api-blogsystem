@@ -4,6 +4,7 @@ import com.newegg.mkpl.api.blogsystem.pojo.CommentBean;
 import com.newegg.mkpl.api.blogsystem.pojo.Pack;
 import com.newegg.mkpl.api.blogsystem.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import java.util.Map;
  * @author vz04
  * @date 8/10/2019 3:10 PM
  **/
+@CrossOrigin
 @RestController
 public class CommentController {
     @Autowired
@@ -48,12 +50,12 @@ public class CommentController {
      * 获取管理员看的评论列表
      *
      * @date 3:21 PM 8/10/2019
-     * @param map 字段 articleId
+     * @param map 字段 articleId, pageNum 页码
      * @return Pack
      */
     @PostMapping("/manage/get/comment")
     public Pack getComment(@RequestBody Map<String,Integer> map) {
-        return commentService.getComment(map.get("articleId"));
+        return commentService.getComment(map.get("articleId"),map.get("pageNum"));
     }
 
     /**

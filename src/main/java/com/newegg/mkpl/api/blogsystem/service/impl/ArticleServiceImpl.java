@@ -1,17 +1,25 @@
 package com.newegg.mkpl.api.blogsystem.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.newegg.mkpl.api.blogsystem.enums.StateEnum;
 import com.newegg.mkpl.api.blogsystem.mapper.ArticleMapper;
 import com.newegg.mkpl.api.blogsystem.mapper.CommentMapper;
 import com.newegg.mkpl.api.blogsystem.pojo.ArticleBean;
+import com.newegg.mkpl.api.blogsystem.pojo.ArticleListManageBean;
+import com.newegg.mkpl.api.blogsystem.pojo.ArticleListUserBean;
 import com.newegg.mkpl.api.blogsystem.pojo.Pack;
 import com.newegg.mkpl.api.blogsystem.service.ArticleService;
+import com.newegg.mkpl.api.blogsystem.util.FileUtil;
 import com.newegg.mkpl.api.blogsystem.util.PoolStatic;
 import com.newegg.mkpl.api.blogsystem.util.RegularUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -22,11 +30,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArticleServiceImpl implements ArticleService {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private ArticleMapper articleMapper;
+
     @Autowired
     private CommentMapper commentMapper;
 
+    @Value("${upload.path}")
+    private String path;
 
     /**
      * 新增文章
@@ -80,6 +92,9 @@ public class ArticleServiceImpl implements ArticleService {
     public Pack putArticle(ArticleBean articleBean) throws RuntimeException {
         String headline = articleBean.getHeadline();
         ArticleBean article = articleMapper.getHeadline(headline);
+        if (!RegularUtil.isUrl(articleBean.getPictureAddress())) {
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.PICTURE_URL_ERROR);
+        }
         if (article != null) {
             if (!articleBean.getArticleId().equals(article.getArticleId())) {
                 return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.HEADLINE_EXIST);
@@ -101,6 +116,12 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public Pack deleteArticle(Integer articleId) throws RuntimeException {
+        String pictureUrl = articleMapper.getPictureUrl(articleId);
+        String fileName = pictureUrl.substring(pictureUrl.lastIndexOf("/")+1);
+        boolean b = FileUtil.deletePicture(fileName, path);
+        if (!b){
+            return new Pack().fail(StateEnum.FAIL.value(),PoolStatic.DELETE_FAIL);
+        }
         Integer integer = articleMapper.deleteArticle(articleId);
         Integer integer1 = commentMapper.deleteCommentAll(articleId);
         if (integer != 1 || integer1 < 0) {
@@ -110,25 +131,33 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
-     * 获取用户使用的文章列表
+     * 获取用户使用的文章列表(分页包装)
      *
      * @date 3:22 PM 8/9/2019
+     * @param pageNum 页码
      * @return Pack
      */
     @Override
-    public Pack getArticleListUser() {
-        return new Pack().success(PoolStatic.GET_SUCCESS,articleMapper.getArticleListUser());
+    public Pack getArticleListUser(Integer pageNum) {
+        PageHelper.startPage(pageNum,PoolStatic.PAGE_SIZE);
+        List<ArticleListUserBean> articleListUser = articleMapper.getArticleListUser();
+        PageInfo<ArticleListUserBean> articleListUserPageInfo = new PageInfo<>(articleListUser);
+        return new Pack().success(PoolStatic.GET_SUCCESS,articleListUserPageInfo);
     }
 
     /**
      * 获取管理用的文章列表
      *
      * @date 3:24 PM 8/9/2019
+     * @param pageNum 页码
      * @return Pack
      */
     @Override
-    public Pack getArticleListManage() {
-        return new Pack().success(PoolStatic.GET_SUCCESS,articleMapper.getArticleListManage());
+    public Pack getArticleListManage(Integer pageNum) {
+        PageHelper.startPage(pageNum,PoolStatic.PAGE_SIZE);
+        List<ArticleListManageBean> articleListManage = articleMapper.getArticleListManage();
+        PageInfo<ArticleListManageBean> articleListManagePageInfo = new PageInfo<>(articleListManage);
+        return new Pack().success(PoolStatic.GET_SUCCESS,articleListManagePageInfo);
     }
 
     /**

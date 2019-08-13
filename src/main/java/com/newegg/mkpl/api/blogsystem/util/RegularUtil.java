@@ -17,12 +17,11 @@ public class RegularUtil {
      * @return true:是URL；false:不是URL
      */
     public static boolean isUrl(String url) {
-        String regex = "[0-9]{13}+(.JPEG|.jpeg|.JPG|.jpg|.png|.PNG)$";
-
-//        String regex = "^(http|www|ftp|)?(://)?(\\w+(-\\w+)*)(\\.(\\w+(-\\w+)*))*((:\\d+)?)(/(\\w+(-\\w+)*))*(\\.?(\\w)*)(\\?)?" +
-//                "(((\\w*%)*(\\w*\\?)*(\\w*:)*(\\w*\\+)*(\\w*\\.)*(\\w*&)*(\\w*-)*(\\w*=)*(\\w*%)*(\\w*\\?)*" +
-//                "(\\w*:)*(\\w*\\+)*(\\w*\\.)*" +
-//                "(\\w*&)*(\\w*-)*(\\w*=)*)*(\\w*)*)$";
+//        String regex = "[0-9]{13}+(.JPEG|.jpeg|.JPG|.jpg|.png|.PNG)$";
+        String regex = "^(http|www|ftp|)?(://)?(\\w+(-\\w+)*)(\\.(\\w+(-\\w+)*))*((:\\d+)?)(/(\\w+(-\\w+)*))*(\\.?(\\w)*)(\\?)?" +
+                "(((\\w*%)*(\\w*\\?)*(\\w*:)*(\\w*\\+)*(\\w*\\.)*(\\w*&)*(\\w*-)*(\\w*=)*(\\w*%)*(\\w*\\?)*" +
+                "(\\w*:)*(\\w*\\+)*(\\w*\\.)*" +
+                "(\\w*&)*(\\w*-)*(\\w*=)*)*(\\w*)*)$";
         return Pattern.matches(regex, url);
     }
 
@@ -34,7 +33,7 @@ public class RegularUtil {
      * @return true:是Email；false:不是Email
      */
     public static boolean isEmail(String email) {
-        String regex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        String regex = "^([a-z0-9A-Z]+[-|.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
         return Pattern.matches(regex,email);
     }
 

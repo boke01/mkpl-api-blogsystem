@@ -107,4 +107,12 @@ public interface ArticleMapper {
      */
     Integer putReadingQuantity(@Param("articleId") Integer articleId);
 
+    /**
+     * 获取图片路径
+     *
+     * @date 11:03 AM 8/13/2019
+     * @param articleId 文章id
+     * @return String
+     */
+    String getPictureUrl(@Param("articleId") Integer articleId);
 }

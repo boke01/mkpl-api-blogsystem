@@ -133,4 +133,15 @@ public class ArticleMapperTests {
         Assert.assertSame(1,articleMapper.putReadingQuantity(6));
     }
 
+    /**
+     * 获取文章封面图路径
+     *
+     * @date 11:07 AM 8/13/2019
+     */
+    @Test
+    public void getPictureUrl() {
+        String pictureUrl = articleMapper.getPictureUrl(2);
+        System.out.println(pictureUrl);
+        Assert.assertNotNull(pictureUrl);
+    }
 }
