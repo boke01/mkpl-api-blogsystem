@@ -33,6 +33,6 @@ public class PoolStatic {
     public static final String PLEASE_LOGIN = "请登录";
     public static final String LOGOUT = "退出登录";
 
-    public static final Integer PAGE_SIZE = 10;
+    public static final Integer PAGE_SIZE = 1;
 
 }

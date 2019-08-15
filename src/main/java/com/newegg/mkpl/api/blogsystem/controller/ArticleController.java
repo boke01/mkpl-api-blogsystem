@@ -3,6 +3,7 @@ package com.newegg.mkpl.api.blogsystem.controller;
 import com.newegg.mkpl.api.blogsystem.pojo.ArticleBean;
 import com.newegg.mkpl.api.blogsystem.pojo.Pack;
 import com.newegg.mkpl.api.blogsystem.service.ArticleService;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import java.util.Map;
  * @author vz04
  * @date 8/10/2019 2:19 PM
  **/
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200" ,allowCredentials = "true")
 @RestController
 public class ArticleController {
     @Autowired

@@ -16,7 +16,7 @@ import java.util.Map;
  * @author vz04
  * @date 8/10/2019 3:10 PM
  **/
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200",allowCredentials = "true")
 @RestController
 public class CommentController {
     @Autowired

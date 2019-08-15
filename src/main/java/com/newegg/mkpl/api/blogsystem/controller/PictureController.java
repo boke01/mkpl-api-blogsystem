@@ -21,7 +21,7 @@ import java.io.IOException;
  * @author vz04
  * @date 8/10/2019 9:04 AM
  **/
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200",allowCredentials = "true")
 @RestController
 public class PictureController {
     @Autowired

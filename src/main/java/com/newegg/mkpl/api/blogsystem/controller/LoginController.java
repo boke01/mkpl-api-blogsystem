@@ -18,8 +18,9 @@ import java.util.Map;
  * 登录相关的api
  * @author vz04
  * @date 8/10/2019 1:03 PM
+ * access-allow-control-credentials
  **/
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200",allowCredentials = "true")
 @RestController
 @RequestMapping("/manage")
 public class LoginController {
@@ -58,14 +59,6 @@ public class LoginController {
         subject.logout();
         return new Pack().success(PoolStatic.LOGOUT);
     }
-    /**
-     * 返回未登录信息
-     *
-     * @date 2:10 PM 8/10/2019
-     */
-    @RequestMapping("/limits")
-    public Pack limits() {
-        return new Pack().fail(StateEnum.NO_AUTHORITY.value(),PoolStatic.PLEASE_LOGIN);
-    }
+
 
 }
