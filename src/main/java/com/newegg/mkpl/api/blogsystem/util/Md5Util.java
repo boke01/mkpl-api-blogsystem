@@ -10,19 +10,18 @@ import java.security.MessageDigest;
  **/
 
 public class Md5Util {
-     /**
+    /**
      * 16进制的字符数组
      */
-    private final static String[] HEX_DIGITS = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
-
+    private final static String[] HEX_DIGITS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
 
     /**
      * 将字符串加密成密文
      *
-     * @date 5:13 PM 7/30/2019
      * @param source 需要加密的原字符串
      * @return String
+     * @date 5:13 PM 7/30/2019
      */
     public static String md5Encode(String source) {
         String result = null;
@@ -40,13 +39,13 @@ public class Md5Util {
         }
         return result;
     }
-    
+
     /**
      * 转换字节数组为16进制字符串
      *
-     * @date 5:15 PM 7/30/2019
      * @param bytes 字节数组
      * @return String
+     * @date 5:15 PM 7/30/2019
      */
     private static String byteArrayToHexString(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -59,9 +58,9 @@ public class Md5Util {
     /**
      * 将byte转化成16进制对应的字符
      *
-     * @date 5:16 PM 7/30/2019
      * @param b 要转换的byte
      * @return String
+     * @date 5:16 PM 7/30/2019
      */
     private static String byteToHexString(byte b) {
         int n = b;

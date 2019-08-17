@@ -5,7 +5,6 @@ package com.newegg.mkpl.api.blogsystem.util;
  * @author vz04
  * @date 8/8/2019 3:52 PM
  **/
-
 public class PoolStatic {
     private PoolStatic() {}
 
@@ -33,6 +32,6 @@ public class PoolStatic {
     public static final String PLEASE_LOGIN = "请登录";
     public static final String LOGOUT = "退出登录";
 
-    public static final Integer PAGE_SIZE = 1;
+    public static final Integer PAGE_SIZE = 9;
 
 }

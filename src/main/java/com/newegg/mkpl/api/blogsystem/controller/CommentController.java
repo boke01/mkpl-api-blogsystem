@@ -13,10 +13,11 @@ import java.util.Map;
 
 /**
  * 评论相关的api
+ *
  * @author vz04
  * @date 8/10/2019 3:10 PM
  **/
-@CrossOrigin(origins = "http://localhost:4200",allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 @RestController
 public class CommentController {
     @Autowired
@@ -25,9 +26,9 @@ public class CommentController {
     /**
      * 新增评论
      *
-     * @date 3:13 PM 8/10/2019
      * @param commentBean 字段：articleId visitorName email content
      * @return Pack
+     * @date 3:13 PM 8/10/2019
      */
     @PostMapping("/post/comment")
     public Pack postComment(@RequestBody CommentBean commentBean) {
@@ -37,36 +38,36 @@ public class CommentController {
     /**
      * 获取用户看的评论列表
      *
-     * @date 3:17 PM 8/10/2019
      * @param map 字段 articleId
      * @return Pack
+     * @date 3:17 PM 8/10/2019
      */
     @PostMapping("/get/comment-list")
-    public Pack getCommentList(@RequestBody Map<String,Integer> map) {
+    public Pack getCommentList(@RequestBody Map<String, Integer> map) {
         return commentService.getCommentList(map.get("articleId"));
     }
 
     /**
      * 获取管理员看的评论列表
      *
-     * @date 3:21 PM 8/10/2019
      * @param map 字段 articleId, pageNum 页码
      * @return Pack
+     * @date 3:21 PM 8/10/2019
      */
     @PostMapping("/manage/get/comment")
-    public Pack getComment(@RequestBody Map<String,Integer> map) {
-        return commentService.getComment(map.get("articleId"),map.get("pageNum"));
+    public Pack getComment(@RequestBody Map<String, Integer> map) {
+        return commentService.getComment(map.get("articleId"), map.get("pageNum"));
     }
 
     /**
      * 删除评论
      *
-     * @date 3:22 PM 8/10/2019
      * @param map 字段：commentId
      * @return Pack
+     * @date 3:22 PM 8/10/2019
      */
     @PostMapping("/manage/delete/comment")
-    public Pack deleteComment(@RequestBody Map<String,Integer> map) {
+    public Pack deleteComment(@RequestBody Map<String, Integer> map) {
         return commentService.deleteComment(map.get("commentId"));
     }
 }

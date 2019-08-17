@@ -1,8 +1,6 @@
 server:
   servlet:
     context-path: /blog
-    session:
-      timeout: 30m
   port: 8080
   tomcat:
     uri-encoding: UTF-8
@@ -25,6 +23,7 @@ spring:
 
 logging:
   config: classpath:log/log4j2.xml
+
 
 user:
   account: 10086

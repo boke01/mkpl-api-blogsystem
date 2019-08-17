@@ -31,14 +31,13 @@ public class CommentMapperTest {
         comment.setEmail("123456@123.com");//不能有中文字符
         comment.setContent("test");
         System.out.println(comment.toString());
-        Assert.assertSame(1,commentMapper.postComment(comment));
+        Assert.assertSame(1, commentMapper.postComment(comment));
     }
 
     /**
      * 获取评论-给用户看
      *
      * @date 2:33 PM 8/9/2019
-
      */
     @Test
     public void getCommentList() {
@@ -62,7 +61,7 @@ public class CommentMapperTest {
      */
     @Test
     public void deleteComment() {
-        Assert.assertSame(1,commentMapper.deleteComment(1));
+        Assert.assertSame(1, commentMapper.deleteComment(1));
     }
 
     /**
@@ -72,6 +71,6 @@ public class CommentMapperTest {
      */
     @Test
     public void deleteCommentAll() {
-        Assert.assertNotSame(-1,commentMapper.deleteCommentAll(1));
+        Assert.assertNotSame(-1, commentMapper.deleteCommentAll(1));
     }
 }

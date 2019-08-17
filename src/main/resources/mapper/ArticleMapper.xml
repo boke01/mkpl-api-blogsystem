@@ -3,14 +3,14 @@
 <mapper namespace="com.newegg.mkpl.api.blogsystem.mapper.ArticleMapper">
 
     <insert id="postArticle" parameterType="ArticleBean">
-        insert into vz04.article  (Headline, Synopsis, Content, PictureAddress,InUser)
+        insert into vz04.article (Headline, Synopsis, Content, PictureAddress,InUser)
         values (#{headline},#{synopsis},#{content},#{pictureAddress},'vz04')
     </insert>
 
     <select id="getArticle" resultType="ArticleBean">
-      select ArticleId, Headline, Synopsis, Content, ReadingQuantity, PictureAddress, LastEditDate
-      from vz04.article
-      where ArticleId = #{articleId}
+        select ArticleId, Headline, Synopsis, Content, ReadingQuantity, PictureAddress, LastEditDate
+        from vz04.article
+        where ArticleId = #{articleId}
     </select>
 
     <update id="putArticle" parameterType="ArticleBean">

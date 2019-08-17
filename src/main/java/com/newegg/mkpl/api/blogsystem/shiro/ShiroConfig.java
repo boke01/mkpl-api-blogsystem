@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * shiro的配置类
+ *
  * @author vz04
  * @date 8/10/2019 12:30 PM
  **/
@@ -22,9 +23,9 @@ public class ShiroConfig {
     /**
      * 创建ShiroFilterFactoryBean
      *
-     * @date 12:46 PM 8/10/2019
      * @param securityManager DefaultWebSecurityManager
      * @return ShiroFilterFactoryBean
+     * @date 12:46 PM 8/10/2019
      */
     @Bean
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager securityManager) {
@@ -34,11 +35,11 @@ public class ShiroConfig {
         Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
         filters.put("authc", new ShiroLoginFilter());
 
-        Map<String,String> filterMap= new LinkedHashMap<>();
+        Map<String, String> filterMap = new LinkedHashMap<>();
 
-        filterMap.put("/manage/login","anon");
-        filterMap.put("/manage/*/*","authc");
-        filterMap.put("/manage/*","authc");
+        filterMap.put("/manage/login", "anon");
+        filterMap.put("/manage/*/*", "authc");
+        filterMap.put("/manage/*", "authc");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
 
@@ -48,9 +49,9 @@ public class ShiroConfig {
     /**
      * 创建DefaultWebSecurityManager
      *
-     * @date 12:38 PM 8/10/2019
      * @param userRealm UserRealm
      * @return DefaultWebSecurityManager
+     * @date 12:38 PM 8/10/2019
      */
     @Bean(name = "securityManager")
     public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm) {
@@ -62,8 +63,8 @@ public class ShiroConfig {
     /**
      * 创建Realm
      *
-     * @date 12:37 PM 8/10/2019
      * @return UserRealm
+     * @date 12:37 PM 8/10/2019
      */
     @Bean(name = "userRealm")
     public UserRealm getRealm() {

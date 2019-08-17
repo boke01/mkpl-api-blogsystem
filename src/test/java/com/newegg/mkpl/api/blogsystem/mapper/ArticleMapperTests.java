@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 测试类
+ *
  * @author vz04
  * @date 8/9/2019 9:27 AM
  **/
@@ -31,7 +32,7 @@ public class ArticleMapperTests {
         article.setSynopsis("测试简介");
         article.setContent("测试内容");
         article.setPictureAddress("http");//这里中文会乱码
-        Assert.assertSame("添加失败",1,articleMapper.postArticle(article));
+        Assert.assertSame("添加失败", 1, articleMapper.postArticle(article));
     }
 
     /**
@@ -60,17 +61,18 @@ public class ArticleMapperTests {
         article.setSynopsis("测试简介5");
         article.setContent("测试内容5");
         article.setPictureAddress("http5");//这里中文会乱码
-        Assert.assertSame("修改失败",1,articleMapper.putArticle(article));
+        Assert.assertSame("修改失败", 1, articleMapper.putArticle(article));
     }
 
     /**
      * 删除文章
      * 如果文章不存在报错
+     *
      * @date 10:53 AM 8/9/2019
      */
     @Test
     public void deleteArticle() {
-        Assert.assertSame(1,articleMapper.deleteArticle(2));
+        Assert.assertSame(1, articleMapper.deleteArticle(2));
     }
 
     /**
@@ -130,7 +132,7 @@ public class ArticleMapperTests {
      */
     @Test
     public void putReadingQuantity() {
-        Assert.assertSame(1,articleMapper.putReadingQuantity(6));
+        Assert.assertSame(1, articleMapper.putReadingQuantity(6));
     }
 
     /**

@@ -18,10 +18,11 @@ import java.io.IOException;
 
 /**
  * 图片相关的api
+ *
  * @author vz04
  * @date 8/10/2019 9:04 AM
  **/
-@CrossOrigin(origins = "http://localhost:4200",allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 @RestController
 public class PictureController {
     @Autowired
@@ -33,15 +34,15 @@ public class PictureController {
     /**
      * 上传图片的api
      *
-     * @date 9:18 AM 8/10/2019
      * @param file 图片
      * @return Pack
+     * @date 9:18 AM 8/10/2019
      */
     @PostMapping("/manage/upload/picture")
     public Pack postPicture(@RequestParam("file") MultipartFile file) throws IOException {
-        if (!file.isEmpty()){
+        if (!file.isEmpty()) {
             return pictureService.postPicture(file);
-        }else {
+        } else {
             return new Pack().fail(StateEnum.FAIL.value(), PoolStatic.NO_FILE);
         }
     }
@@ -49,22 +50,21 @@ public class PictureController {
     /**
      * 获取图片
      *
-     * @date 4:48 PM 8/10/2019
      * @param fileName 文件名称
      * @param response HttpServletResponse
+     * @date 4:48 PM 8/10/2019
      */
     @GetMapping("/get/picture/{fileName}")
     public void getPicture(@PathVariable String fileName, HttpServletResponse response) throws IOException {
-        String path = System.getProperty("user.dir") + uploadPath+fileName;
+        String path = System.getProperty("user.dir") + uploadPath + fileName;
         File file = new File(path);
         FileInputStream inFile = new FileInputStream(file);
-        MultipartFile multi = new MockMultipartFile(fileName,inFile);
+        MultipartFile multi = new MockMultipartFile(fileName, inFile);
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-        String hande = "image/"+suffix;
+        String hande = "image/" + suffix;
         response.setContentType(hande);
         response.getOutputStream().write(multi.getBytes());
     }
-
 
 
 }

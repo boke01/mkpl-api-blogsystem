@@ -2,6 +2,7 @@ package com.newegg.mkpl.api.blogsystem.pojo;
 
 /**
  * 文章列表
+ *
  * @author vz04
  * @date 8/9/2019 11:10 AM
  **/
